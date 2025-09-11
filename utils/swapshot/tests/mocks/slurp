@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+# This mock simulates the slurp region selection tool.
+# It prints its arguments to stderr and outputs a mock region geometry to stdout.
+echo "MOCK_SLURP_ARGS: $@" >&2
+# A typical slurp output for a selected region (e.g., 100x200 at offset 50,50)
+echo "50,50 100x200"

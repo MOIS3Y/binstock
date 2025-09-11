@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+# This mock is used by tests to verify that `notify-send` is called with the correct arguments.
+# It prints the passed arguments to standard error.
+echo "MOCK_NOTIFY_ARGS: $@" >&2

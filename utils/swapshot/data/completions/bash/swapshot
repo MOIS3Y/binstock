@@ -1,0 +1,39 @@
+_swapshot_complete() {
+    local cur prev opts
+    COMPREPLY=()
+    cur="${COMP_WORDS[COMP_CWORD]}"
+    prev="${COMP_WORDS[COMP_CWORD-1]}"
+    
+    # Commands
+    local commands="save copy savecopy"
+    
+    # Options
+    local opts="-h --help -v --version -c --capture -d --delay -o --output-dir -e --edit -n --notify"
+    
+    case "${prev}" in
+        -d|--delay)
+            COMPREPLY=($(compgen -W "1 2 3 5 10" -- "${cur}"))
+            return 0
+            ;;
+        -o|--output-dir)
+            compopt -o filenames
+            COMPREPLY=($(compgen -d -- "${cur}"))
+            return 0
+            ;;
+        *)
+            ;;
+    esac
+    
+    # Complete commands if no option prefix
+    if [[ ${cur} != -* ]]; then
+        COMPREPLY=($(compgen -W "${commands}" -- "${cur}"))
+        return 0
+    fi
+    
+    # Complete options
+    if [[ ${cur} == -* ]]; then
+        COMPREPLY=($(compgen -W "${opts}" -- "${cur}"))
+        return 0
+    fi
+}
+complete -F _swapshot_complete swapshot

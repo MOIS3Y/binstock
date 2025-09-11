@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+# This mock for 'wl-copy' helps verify that data is correctly copied to the clipboard.
+echo "MOCK_WL-COPY_ARGS: $@" >&2

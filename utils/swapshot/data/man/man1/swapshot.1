@@ -1,0 +1,87 @@
+.TH SWAPSHOT 1 "2025-09-06" "0.1.0" "Swapshot Manual"
+.SH NAME
+swapshot \- capture and manage screen regions effortlessly
+.SH SYNOPSIS
+.B swapshot
+[\fICOMMAND\fR] [\fIOPTIONS\fR]
+.SH DESCRIPTION
+\fBswapshot\fR is a command-line utility for capturing screen regions 
+or entire screens on Wayland compositors. 
+It provides multiple operation modes with flexible output options.
+.PP
+The tool features configurable delay, region selection, output directory 
+selection, desktop notifications, and integration with swappy for editing.
+.SH COMMANDS
+.TP
+.B save
+Capture and save to file (default command)
+.TP
+.B copy  
+Capture and copy to clipboard
+.TP
+.B savecopy
+Capture and both save to file and copy to clipboard
+.SH OPTIONS
+.TP
+.BR \-h ", " \-\-help
+Show help message and exit
+.TP
+.BR \-v ", " \-\-version
+Show version information and exit
+.TP
+.BR \-c ", " \-\-capture
+Select region to capture interactively (instead of full screen)
+.TP
+.BR \-d ", " \-\-delay " \fISECONDS\fR"
+Set delay before capture (default: 0)
+.TP
+.BR \-o ", " \-\-output-dir " \fIDIR\fR"
+Specify output directory for saved files
+.TP
+.BR \-e ", " \-\-edit
+Open swappy for editing after capture
+.TP
+.BR \-n ", " \-\-notify
+Send desktop notification after capture
+.SH EXAMPLES
+.TP
+Save full screenshot to default directory:
+.B swapshot save
+.TP
+Copy selected region to clipboard:
+.B swapshot copy \-c
+.TP
+Save and copy selected region with notification:
+.B swapshot savecopy \-c \-n
+.TP
+Select region and edit with swappy:
+.B swapshot \-c \-e
+.TP
+Save full screen with delay to custom directory:
+.B swapshot save \-d 3 \-o ~/Pics
+.SH FILES
+.TP
+.B ${XDG_SCREENSHOTS_DIR:-${XDG_PICTURES_DIR:-${HOME}/Pictures}}
+Default screenshot directory (in order of preference)
+.SH ENVIRONMENT
+.TP
+.B XDG_SCREENSHOTS_DIR
+Primary directory for screenshots (takes precedence)
+.TP
+.B XDG_PICTURES_DIR
+Fallback directory for screenshots
+.TP
+.B SS_FILENAME_FORMAT
+Filename format using strftime specifiers (default: screenshot_%Y%m%d_%H%M%S.png)
+.TP
+.B WAYLAND_DISPLAY
+Wayland display server connection
+.SH SEE ALSO
+.BR grim (1),
+.BR slurp (1),
+.BR swappy (1),
+.BR wl-copy (1)
+.SH BUGS
+Report bugs at: https://github.com/MOIS3Y/binstock/issues
+.SH COPYRIGHT
+Copyright © 2025 MOIS3Y. License: MIT.

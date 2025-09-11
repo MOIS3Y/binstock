@@ -1,0 +1,21 @@
+#compdef swapshot
+
+_arguments \
+    '(-h --help)'{-h,--help}'[Show help message]' \
+    '(-v --version)'{-v,--version}'[Show version information]' \
+    '(-c --capture)'{-c,--capture}'[Select region to capture interactively]' \
+    '(-d --delay)'{-d,--delay}'[Delay in seconds]:delay:->delay' \
+    '(-o --output-dir)'{-o,--output-dir}'[Output directory]:output_dir:_files' \
+    '(-e --edit)'{-e,--edit}'[Open swappy for editing]' \
+    '(-n --notify)'{-n,--notify}'[Send desktop notification]' \
+    ':command:->command' \
+    && return 0
+
+case $state in
+    command)
+        _values 'command' 'save' 'copy' 'savecopy'
+        ;;
+    delay)
+        _values 'delay' 1 2 3 5 10
+        ;;
+esac

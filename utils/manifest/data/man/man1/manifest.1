@@ -1,0 +1,47 @@
+.TH MANIFEST 1 "2025-09-10" "0.1.0" "Manifest Manual"
+.SH NAME
+manifest \- display information about binstock utilities repository
+.SH SYNOPSIS
+.B manifest
+[\fIOPTIONS\fR]
+.SH DESCRIPTION
+\fBmanifest\fR is a utility that displays information about the binstock 
+meta-repository and its available utilities. It provides a clean, formatted 
+overview of all tools included in the collection.
+.PP
+The binstock repository is a collection of convenient utilities for modern 
+desktop environments and workflow automation.
+.SH OPTIONS
+.TP
+.BR \-h ", " \-\-help
+Show help message and exit
+.TP
+.BR \-v ", " \-\-version
+Show version information and exit
+.SH EXAMPLES
+.TP
+Show repository information:
+.B manifest
+.TP
+Show version information:
+.B manifest \-v
+.TP
+Show help message:
+.B manifest \-\-help
+.SH FILES
+.TP
+.B /usr/share/bash-completion/completions/manifest
+Bash completion script
+.TP
+.B /usr/share/zsh/site-functions/_manifest
+Zsh completion script
+.SH ENVIRONMENT
+.TP
+.B REPO_OWNER
+Override default repository owner (default: MOIS3Y)
+.SH SEE ALSO
+.BR swapshot (1)
+.SH BUGS
+Report bugs at: https://github.com/MOIS3Y/binstock/issues
+.SH COPYRIGHT
+Copyright © 2025 MOIS3Y. License: MIT.

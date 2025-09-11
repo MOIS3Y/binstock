@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+# This mock is used by tests to verify that the `swappy` command is called.
+# It prints its arguments to standard error (stderr) for diagnostic purposes.
+cat > /dev/null
+echo "MOCK_SWAPPY_ARGS: $@" >&2
